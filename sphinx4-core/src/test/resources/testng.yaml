@@ -1,0 +1,25 @@
+name: alignment-suite
+
+tests:
+  - name: SpeechAlignerTestX
+    classes:
+      - edu.cmu.sphinx.alignment.SpeechAlignerTest
+
+  - name: TextAlignerLargeTest
+    classes:
+      - edu.cmu.sphinx.alignment.TextAlignerLargeTest
+
+  - name: TextAlignerSmallTest
+    classes:
+      - edu.cmu.sphinx.alignment.TextAlignerSmallTest
+
+  - name: UsEnglishWordExpanderTest
+    classes:
+      - edu.cmu.sphinx.alignment.UsEnglishWordExpanderTest
+
+name: api-suite
+
+tests:
+  - name: LiveRecognizerTest
+    classes:
+      - edu.cmu.sphinx.api.LiveRecognizerTest

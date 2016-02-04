@@ -10,7 +10,8 @@ lazy val commonSettings = Seq(
   javacOptions    ++= commonJava ++ Seq("-source", "1.6", "-target", "1.6"),
   javacOptions in (Compile, doc) := commonJava,
   crossPaths       := false,
-  autoScalaLibrary := false
+  autoScalaLibrary := false,
+  scalaVersion     := "2.11.7"  // not used
 )
 
 lazy val root = Project(id = baseNameL, base = file("."))
@@ -24,9 +25,10 @@ lazy val root = Project(id = baseNameL, base = file("."))
 
 lazy val core = Project(id = s"$baseNameL-core", base = file(s"$baseNameL-core"))
   .dependsOn(data)
-  .settings(commonSettings)
+  .settings(commonSettings, testNGSettings)
   .settings(
     description := s"$baseName core",
+    resolvers += Resolver.sbtPluginRepo("releases"), // cf. https://github.com/sbt/sbt-testng-interface/issues/9
     libraryDependencies ++= Seq(
       "org.apache.commons" % "commons-math3"    % "3.2",
       "org.testng"         % "testng"           % "6.8.8" % "test",
