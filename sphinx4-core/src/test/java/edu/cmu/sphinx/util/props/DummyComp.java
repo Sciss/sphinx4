@@ -2,6 +2,7 @@ package edu.cmu.sphinx.util.props;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -136,12 +137,8 @@ public class DummyComp implements Configurable {
 
     @Test
     public void testUseXmlConfig() throws IOException, PropertyException, InstantiationException {
-        // probably you need to adpat this path. testconfig is located in the same folder as test
-        File configFile = new File("src/test/resources/edu/cmu/sphinx/util/props/ConfigurationManagerTest.testconfig.sxl");
-        if (!configFile.exists())
-            Assert.fail("can not find configuration file to be used for test");
-
-        ConfigurationManager cm = new ConfigurationManager(configFile.toURI().toURL());
+        URL configURL = this.getClass().getResource("ConfigurationManagerTest.testconfig.sxl");
+        ConfigurationManager cm = new ConfigurationManager(configURL);
 
         DummyComp dc = (DummyComp) cm.lookup("duco");
 

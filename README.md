@@ -1,6 +1,18 @@
-branch: sbtfied
-this branch provides an sbt build file so we don't have to deal with gradle
--------------------------------------------------------------------
+__Note:__ This is a fork that uses sbt as a build system instead of Gradle.
+The following tests I could not get to run from the shell, however they can 
+be individually run, for example from within IntelliJ IDEA:
+
+- `edu.cmu.sphinx.frontend.AudioDataSourcesTest`
+- `edu.cmu.sphinx.frontend.FrontendElementTest`
+- `edu.cmu.sphinx.tools.bandwidth.BandDetectorTest`
+
+This fork is published to Maven central using my group-id `de.sciss` and
+a different stable version than the original which is only available as
+snapshot version:
+
+
+
+Below is the original README.
 
 Sphinx-4 Speech Recognition System
 -------------------------------------------------------------------
@@ -42,18 +54,18 @@ Sincerely,
 The Sphinx-4 Team:  
 (in alph. order)    
 
-Evandro Gouvea, CMU (developer and speech advisor)
-Peter Gorniak, MIT (developer)
-Philip Kwok, Sun Labs (developer)
-Paul Lamere, Sun Labs (design/technical lead)
-Beth Logan, HP (speech advisor)
-Pedro Moreno, Google (speech advisor)
-Bhiksha Raj, MERL (design lead)
-Mosur Ravishankar, CMU (speech advisor)
-Bent Schmidt-Nielsen, MERL (speech advisor)
-Rita Singh, CMU/MIT (design/speech advisor)
-JM Van Thong, HP (speech advisor)
-Willie Walker, Sun Labs (overall lead)
-Manfred Warmuth, USCS (speech advisor)
-Joe Woelfel, MERL (developer and speech advisor)
-Peter Wolf, MERL (developer and speech advisor)
+- Evandro Gouvea, CMU (developer and speech advisor)
+- Peter Gorniak, MIT (developer)
+- Philip Kwok, Sun Labs (developer)
+- Paul Lamere, Sun Labs (design/technical lead)
+- Beth Logan, HP (speech advisor)
+- Pedro Moreno, Google (speech advisor)
+- Bhiksha Raj, MERL (design lead)
+- Mosur Ravishankar, CMU (speech advisor)
+- Bent Schmidt-Nielsen, MERL (speech advisor)
+- Rita Singh, CMU/MIT (design/speech advisor)
+- JM Van Thong, HP (speech advisor)
+- Willie Walker, Sun Labs (overall lead)
+- Manfred Warmuth, USCS (speech advisor)
+- Joe Woelfel, MERL (developer and speech advisor)
+- Peter Wolf, MERL (developer and speech advisor)

@@ -1,25 +1,77 @@
-name: alignment-suite
+name: sphinx4-suite
 
 tests:
-  - name: SpeechAlignerTestX
+  - name: alignment
     classes:
       - edu.cmu.sphinx.alignment.SpeechAlignerTest
-
-  - name: TextAlignerLargeTest
-    classes:
       - edu.cmu.sphinx.alignment.TextAlignerLargeTest
-
-  - name: TextAlignerSmallTest
-    classes:
       - edu.cmu.sphinx.alignment.TextAlignerSmallTest
-
-  - name: UsEnglishWordExpanderTest
-    classes:
       - edu.cmu.sphinx.alignment.UsEnglishWordExpanderTest
 
-name: api-suite
-
-tests:
-  - name: LiveRecognizerTest
+  - name: api
     classes:
       - edu.cmu.sphinx.api.LiveRecognizerTest
+
+  - name: decoder
+    classes:
+      - edu.cmu.sphinx.decoder.scorer.ScorerTests
+      - edu.cmu.sphinx.decoder.search.test.PartitionerTest
+
+  - name: frontend
+    classes:
+      # doesn't work running from shell? perhaps class-path problems
+      # - edu.cmu.sphinx.frontend.AudioDataSourcesTest
+      - edu.cmu.sphinx.frontend.DataBlockerTest
+      # - edu.cmu.sphinx.frontend.FrontendElementTest
+      - edu.cmu.sphinx.frontend.RandomDataProcessor
+      - edu.cmu.sphinx.frontend.RandomSampleRepeater
+      - edu.cmu.sphinx.frontend.SpeechMarkerTest
+
+  - name: fst
+    classes:
+      - edu.cmu.sphinx.fst.ArcSortTest
+      - edu.cmu.sphinx.fst.ComposeEpsilonTest
+      - edu.cmu.sphinx.fst.ComposeTest
+      - edu.cmu.sphinx.fst.ConnectTest
+      - edu.cmu.sphinx.fst.DeterminizeTest
+      - edu.cmu.sphinx.fst.ImportTest
+      - edu.cmu.sphinx.fst.NShortestPathsTest
+      - edu.cmu.sphinx.fst.ProjectTest
+      - edu.cmu.sphinx.fst.ReverseTest
+      - edu.cmu.sphinx.fst.RmEpsilonTest
+
+  - name: linguist
+    classes:
+      - edu.cmu.sphinx.linguist.acoustic.tiedstate.test.MixtureComponentTest
+      - edu.cmu.sphinx.linguist.dictionary.DictionaryTest
+      - edu.cmu.sphinx.linguist.language.grammar.BatchForcedAlignerGrammarTest
+      - edu.cmu.sphinx.linguist.language.grammar.FSTGrammarTest
+      - edu.cmu.sphinx.linguist.language.ngram.large.LargeNgramTest
+      - edu.cmu.sphinx.linguist.language.ngram.trie.NgramTrieTest
+      - edu.cmu.sphinx.linguist.language.ngram.DynamicTrigramModelTest
+      - edu.cmu.sphinx.linguist.WordSequenceTest
+
+  - name: result
+    classes:
+      - edu.cmu.sphinx.result.LatticeCompTest
+      - edu.cmu.sphinx.result.LatticeIOTest
+      - edu.cmu.sphinx.result.PosteriorTest
+
+  # doesn't work running from shell? perhaps class-path problems
+  # - name: tools
+  #   classes:
+  #     - edu.cmu.sphinx.tools.bandwidth.BandDetectorTest
+
+  - name: util
+    classes:
+      - edu.cmu.sphinx.util.props.AnotherDummyFrontEnd
+      - edu.cmu.sphinx.util.props.AnotherDummyProcessor
+      - edu.cmu.sphinx.util.props.CMUTests
+      - edu.cmu.sphinx.util.props.ComponentListTests
+      - edu.cmu.sphinx.util.props.ComponentPropertyTest
+      - edu.cmu.sphinx.util.props.ConfigurationManagerTest
+      - edu.cmu.sphinx.util.props.DummyComp
+      - edu.cmu.sphinx.util.props.DummyFrontEnd
+      - edu.cmu.sphinx.util.props.DummyFrontEndProcessor
+      - edu.cmu.sphinx.util.props.DummyProcessor
+      - edu.cmu.sphinx.util.props.TestConfigurable

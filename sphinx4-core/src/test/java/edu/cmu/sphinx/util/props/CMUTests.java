@@ -2,6 +2,7 @@ package edu.cmu.sphinx.util.props;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -38,8 +39,8 @@ public class CMUTests {
 
     @Test
     public void setComponentPropertyTest() throws IOException {
-        File configFile = new File("src/test/resources/edu/cmu/sphinx/util/props/ConfigurationManagerTest.testconfig.sxl");
-        ConfigurationManager cm = new ConfigurationManager(configFile.toURI().toURL());
+        URL configURL = this.getClass().getResource("ConfigurationManagerTest.testconfig.sxl");
+        ConfigurationManager cm = new ConfigurationManager(configURL);
 
         int newBeamWidth = 4711;
         ConfigurationManagerUtils.setProperty(cm, "beamWidth", String.valueOf(newBeamWidth));
