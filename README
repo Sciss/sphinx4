@@ -1,3 +1,7 @@
+branch: sbtfied
+this branch provides an sbt build file so we don't have to deal with gradle
+-------------------------------------------------------------------
+
 Sphinx-4 Speech Recognition System
 -------------------------------------------------------------------
 
