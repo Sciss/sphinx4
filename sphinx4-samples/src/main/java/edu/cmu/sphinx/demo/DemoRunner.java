@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import edu.cmu.sphinx.demo.aligner.AlignerDemo;
+import edu.cmu.sphinx.demo.allphone.AllphoneDemo;
 import edu.cmu.sphinx.demo.dialog.DialogDemo;
 import edu.cmu.sphinx.demo.speakerid.SpeakerIdentificationDemo;
 import edu.cmu.sphinx.demo.transcriber.TranscriberDemo;
@@ -20,6 +21,7 @@ public class DemoRunner {
 
     static {
         classes.put("aligner", AlignerDemo.class);
+        classes.put("allphone", AllphoneDemo.class);
         classes.put("dialog", DialogDemo.class);
         classes.put("speakerid", SpeakerIdentificationDemo.class);
         classes.put("transcriber", TranscriberDemo.class);
