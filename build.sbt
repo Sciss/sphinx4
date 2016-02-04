@@ -6,7 +6,9 @@ lazy val commonJava = Seq("-encoding", "UTF8")
 
 lazy val commonSettings = Seq(
   organization     := "de.sciss",        // originally: "edu.cmu.sphinx"
-  version          := "1.0.0-SNAPSHOT",           // originally: "5prealpha-SNAPSHOT"
+  version          := "1.0.0",           // originally: "5prealpha-SNAPSHOT"
+  licenses         := Seq("BSD-style" -> url("https://raw.githubusercontent.com/Sciss/sphinx4/sbtfied/license.terms")),
+  homepage         := Some(url("http://cmusphinx.sourceforge.net/")),
   javacOptions    ++= commonJava ++ Seq("-source", "1.6", "-target", "1.6"),
   javacOptions in (Compile, doc) := commonJava,
   // fork in test     := true,
@@ -111,21 +113,25 @@ lazy val commonSettings = Seq(
 
 lazy val root = Project(id = baseNameL, base = file("."))
   .aggregate(core, data, samples)
-  .dependsOn(core, data, samples)
+  .dependsOn(core, data)
   .settings(commonSettings)
   .settings(
     name              := baseName,
-    packagedArtifacts := Map.empty
+    description       := s"$baseName core and data",
+    // packagedArtifacts := Map.empty
+    publishArtifact in(Compile, packageBin) := false, // there are no binaries
+    publishArtifact in(Compile, packageDoc) := false, // there are no javadocs
+    publishArtifact in(Compile, packageSrc) := false  // there are no sources
   )
 
 lazy val core = Project(id = s"$baseNameL-core", base = file(s"$baseNameL-core"))
-  .dependsOn(data)
+  .dependsOn(data % "test->compile")
   .settings(commonSettings, testNGSettings)
   .settings(
     description := s"$baseName core",
     resolvers += Resolver.sbtPluginRepo("releases"), // cf. https://github.com/sbt/sbt-testng-interface/issues/9
     libraryDependencies ++= Seq(
-      "org.apache.commons" % "commons-math3"    % "3.2",
+      "org.apache.commons" % "commons-math3"    % "3.6",
       "org.testng"         % "testng"           % "6.8.8" % "test",
       "org.hamcrest"       % "hamcrest-library" % "1.3"   % "test"
     )
@@ -134,7 +140,9 @@ lazy val core = Project(id = s"$baseNameL-core", base = file(s"$baseNameL-core")
 lazy val data = Project(id = s"$baseNameL-data", base = file(s"$baseNameL-data"))
   .settings(commonSettings)
   .settings(
-    description := s"$baseName US English models"
+    description := s"$baseName US English models",
+    publishArtifact in (Compile, packageSrc) := false,  // this would be a duplication
+    publishArtifact in (Compile, packageDoc) := false   // no Java sources
   )
 
 lazy val samples = Project(id = s"$baseNameL-samples", base = file(s"$baseNameL-samples"))

@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Sciss/sphinx4.svg?branch=master)](https://travis-ci.org/Sciss/sphinx4)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.sciss/sphinx4/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.sciss/sphinx4)
+
 __Note:__ This is a fork that uses sbt as a build system instead of Gradle.
 The following tests I could not get to run from the shell, however they can 
 be individually run, for example from within IntelliJ IDEA:
@@ -6,11 +9,19 @@ be individually run, for example from within IntelliJ IDEA:
 - `edu.cmu.sphinx.frontend.FrontendElementTest`
 - `edu.cmu.sphinx.tools.bandwidth.BandDetectorTest`
 
+To run the samples:
+
+    sbt 'sphinx4-samples/run name'
+
 This fork is published to Maven central using my group-id `de.sciss` and
 a different stable version than the original which is only available as
 snapshot version:
 
+    "de.sciss" % "sphinx4" % v
 
+The current version `v` in this scheme is `"1.0.0"`. The above artifact
+combines `"sphinx4-core"` (library only) and `"sphinx4-data"` (English 
+language data).
 
 Below is the original README.
 
