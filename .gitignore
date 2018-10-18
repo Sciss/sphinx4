@@ -2,3 +2,7 @@ target/
 lib_managed/
 src_managed/
 .idea/
+/gradle
+/gradlew
+/gradlew.bat
+.gradle/
